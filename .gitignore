@@ -75,3 +75,5 @@ redis.conf
 # Audio & Docs
 audio/*
 docs/*
+!audio/
+!docs/
