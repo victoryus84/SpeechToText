@@ -73,7 +73,14 @@ redis.conf
 .vscode
 
 # Audio & Docs
+# Ignore files within the "audio" directory
 audio/*
+
+# Ignore files within the "docs" directory
 docs/*
+
+# Include the "audio" directory itself
 !audio/
+
+# Include the "docs" directory itself
 !docs/
