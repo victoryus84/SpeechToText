@@ -74,10 +74,10 @@ redis.conf
 
 # Audio & Docs
 # Ignore files within the "audio" directory
-audio/*
+audio/*.m4a
 
 # Ignore files within the "docs" directory
-docs/*
+docs/*.txt
 
 # Include the "audio" directory itself
 !audio/
