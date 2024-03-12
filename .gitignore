@@ -68,3 +68,7 @@ postgres_db/
 db.sqlite3
 
 redis.conf
+
+# Audio & Docs
+audio/
+docs/
