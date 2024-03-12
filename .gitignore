@@ -69,6 +69,9 @@ db.sqlite3
 
 redis.conf
 
+# vscode
+.vscode
+
 # Audio & Docs
-audio/
-docs/
+audio/*
+docs/*
