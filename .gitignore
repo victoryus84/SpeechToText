@@ -78,9 +78,3 @@ audio/*.m4a
 
 # Ignore files within the "docs" directory
 docs/*.txt
-
-# Include the "audio" directory itself
-!audio/
-
-# Include the "docs" directory itself
-!docs/
