@@ -1,7 +1,8 @@
 import assemblyai as aai
 import os
 from pathlib import Path
-import functools
+from environs import Env
+import argparse
 
 def addNewLineAfterDot(text):
     array_text = text.split(". ")
@@ -26,7 +27,6 @@ def transcript(transcriber):
     
     # transcript = transcriber.transcribe("https://storage.googleapis.com/aai-web-samples/news.mp4")
     # transcript = transcriber.transcribe('.\\audio\\20.56​.m4a')
-
     audio_dir = '.\\audio'
     docs_dir = '.\\docs'
     n = 0
@@ -47,8 +47,15 @@ def transcript(transcriber):
                 writeDataFile(file_path, result_text)  
             
 if __name__ == "__main__":
-    aai.settings.api_key = "6d44a79cadff48ddac89f3685f0a19cf"
-    transcriber = aai.Transcriber()
-    print("Function called!")
-    transcript(transcriber)    
     
+    parser = argparse.ArgumentParser(description="Set language to use")
+    parser.add_argument("--language", default="en_us", help="Language using in audio")
+    args = parser.parse_args()
+    
+    env = Env()
+    aai.settings.api_key = env.str("API_KEY")
+    config = aai.TranscriptionConfig(language_code=args.language)
+    transcriber = aai.Transcriber(config=config)
+    print("Job started!")
+    transcript(transcriber)    
+    print("Job finished!")
